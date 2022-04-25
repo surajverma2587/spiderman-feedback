@@ -12,6 +12,7 @@ const renderQuestion = () => {
 // function to remove banner from page
 const removeBanner = () => {
   console.log("remove banner");
+  bannerSection.remove();
 };
 
 // declare the event handler function for start button click
