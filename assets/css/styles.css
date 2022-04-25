@@ -166,3 +166,12 @@ body {
 }
 
 /* end of button styles */
+
+@media screen and (max-width: 768px) {
+  .main {
+    margin: 0 1rem;
+  }
+  .content-section {
+    margin: 2rem 0.75rem;
+  }
+}
