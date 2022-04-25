@@ -74,8 +74,8 @@ const handleOptionClick = (event) => {
       value,
     };
 
-    // TODO: store answer in local storage
-    console.log(answer);
+    // store answer in local storage
+    storeAnswerInLS(answer);
 
     // remove question
     removeQuestion();
@@ -177,6 +177,17 @@ const initialiseLocalStorage = () => {
     // if not exist set LS to have feedbackResults as an empty array
     localStorage.setItem("feedbackResults", JSON.stringify([]));
   }
+};
+
+const storeAnswerInLS = (answer) => {
+  // get feedbackResults from LS
+  const feedbackResults = JSON.parse(localStorage.getItem("feedbackResults"));
+
+  // push answer in to array
+  feedbackResults.push(answer);
+
+  // set feedbackResults in LS
+  localStorage.setItem("feedbackResults", JSON.stringify(feedbackResults));
 };
 
 // declare the event handler function for start button click
