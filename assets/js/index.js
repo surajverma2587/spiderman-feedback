@@ -167,9 +167,23 @@ const removeQuestion = () => {
   document.getElementById("question-container").remove();
 };
 
+const initialiseLocalStorage = () => {
+  // get feedbackResults from LS
+  const feedbackResultsFromLS = JSON.parse(
+    localStorage.getItem("feedbackResults")
+  );
+
+  if (!feedbackResultsFromLS) {
+    // if not exist set LS to have feedbackResults as an empty array
+    localStorage.setItem("feedbackResults", JSON.stringify([]));
+  }
+};
+
 // declare the event handler function for start button click
 const handleStartButtonClick = () => {
   console.log("start button clicked");
+  // initialise local storage
+  initialiseLocalStorage();
 
   // remove banner section
   removeBanner();
